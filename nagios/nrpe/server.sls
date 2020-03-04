@@ -3,6 +3,7 @@
 nrpe-server-package:
   pkg.installed:
     - name: {{ nrpe.server }}
+    - version: {{ salt['pillar.get']('nagios:nrpe:version', 'latest') }}
 
 nrpe-server-service:
   service.running:
