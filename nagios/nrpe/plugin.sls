@@ -3,6 +3,7 @@
 nrpe-plugin-package:
   pkg.installed:
     - name: {{ nrpe.plugin }}
+    - version: {{ salt['pillar.get']('nagios:nrpe:version', 'latest') }}
     {% if grains['os_family'] == 'Debian' and nrpe.install_recommends == False %}
     - install_recommends: False
     {% endif %}
