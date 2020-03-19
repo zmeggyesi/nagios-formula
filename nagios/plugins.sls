@@ -2,7 +2,7 @@
 
 nagios-plugins:
   pkg.installed:
-    - name: {{ nagios.plugins }}
+    - name: {{ salt['pillar.get']('nagios:plugins', 'nagios-plugins') }}
 
 {% if salt['pillar.get']("nagios:plugins:extra_pkgs", False) %}
 nagios-extra-plugin-pkgs:
